@@ -26,6 +26,31 @@ class CNF:
         return v
 
 
+class DNF:
+    """
+    Disjunctive Normal Form
+    """
+
+    def __init__(self, *terms):
+        self.terms = terms
+
+    def __str__(self):
+        return ' v '.join(map(str, self.terms))
+
+
+class Term:
+    """
+    A two-literal term.
+    """
+
+    def __init__(self, litA, litB):
+        self.litA = litA
+        self.litB = litB
+
+    def __str__(self):
+        return '(%s ^ %s)' % (self.litA, self.litB)
+
+
 class Clause:
     """
     In 2SAT every clause has exactly two literals.
